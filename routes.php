@@ -2,7 +2,7 @@
 $controllers = array(
     'pages' => ['home', 'error'],
     'user' => ['index', 'newregister','addregister'],
-
+    'paosom' => ['index'],
 
 );
 
@@ -18,6 +18,10 @@ function call($controller, $action)
         case "user":
                 $controller = new UserController();
                 break;
+
+                case "paosom":
+                    $controller = new PaosomController();
+                    break;
 
 
 

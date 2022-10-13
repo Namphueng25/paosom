@@ -23,7 +23,7 @@
             $_SESSION['s_userlevel'] = $row['s_userlevel'];
 
             if ($_SESSION['s_userlevel'] == 's') {
-                header("Location: view\paosom\index.php");
+                header("Location: indexpaosom.php");
             }
         } 
       
