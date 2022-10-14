@@ -8,8 +8,8 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 
 }else
 {
-    $controller = 'pages';
-    $action = 'home';
+    $controller = 'paosom';
+    $action = 'index';
 }
 
 
@@ -65,18 +65,20 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         <div class="sidebar-body">
             <ul class="sidebar-body-menu">
                 <li>
-                    <a class="active" href="?controller=paosom&action=index"><span class="icon home" aria-hidden="true"></span>เป๋าของฉัน</a>
+                    <a class="" href="?controller=paosom&action=index"><span class="icon home" aria-hidden="true"></span>เป๋าของฉัน</a>
                     
                 </li>
+
                 <li>
-                    <a class="show-cat-btn" href="##">
-                        <span class="icon document" aria-hidden="true"></span>โอนเงิน
-                        <span class="category__btn transparent-btn" title="Open list">
-                            <span class="sr-only">Open list</span>
-                       
-                        </span>
-                    </a>
+                    <a class="" href="?controller=store&action=newtransfer"><span class="icon document" ></span>โอนเงิน</a>
+                    
                 </li>
+
+                <li>
+                    <a class="" href="?controller=store&action=index"><span class="icon folder" ></span>ร้านค้าในโรงส้ม</a>
+                    
+                </li>
+           
                 <li>
                     <a class="show-cat-btn" href="##">
                         <span class="icon folder" aria-hidden="true"></span>ประวัติการโอน
@@ -87,16 +89,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
                     </a>
                 
                 </li>
-                <li>
-                    <a class="show-cat-btn" href="##">
-                        <span class="icon folder" aria-hidden="true"></span>ร้านค้าในโรงส้ม
-                        <span class="category__btn transparent-btn" title="Open list">
-                            <span class="sr-only">Open list</span>
-                          
-                        </span>
-                    </a>
-                
-                </li>
+            
         
          
        
@@ -220,7 +213,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="../../logout.php">
+          <li><a class="danger" href="logout.php">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
@@ -228,6 +221,9 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
       </div>
     </div>
   </div>
+  <?php
+require_once("routes.php");
+?>
 </nav>
     <!-- ! Main -->
 
@@ -253,6 +249,8 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 <script src="plugins/feather.min.js"></script>
 <!-- Custom scripts -->
 <script src="js/script.js"></script>
+
+
 </body>
 
 </html>

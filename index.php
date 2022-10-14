@@ -13,6 +13,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<?php
+if(isset($_GET['controller']) && isset($_GET['action'])) 
+{  
+     $controller = $_GET['controller'];
+    $action = $_GET['action'];
+
+}else
+
+{   
+    $controller= 'user'; 
+    $action = 'newregister';
+
+} 
+?>
 <?php if (isset($_SESSION['success'])) : ?>
         <div class="success">
             <?php 
@@ -29,6 +43,9 @@
             ?>
         </div>
     <?php endif; ?>
+
+
+	
 	<img class="wave" src="img/wave1.png">
 	<div class="container">
 		<div class="img">
@@ -58,7 +75,8 @@
            		    	<input type="password" name = 'password' class="input">
             	   </div>
             	</div>
-            	<a href="view\paosom\newregister.php">Go to register</a>
+				<input type="hidden" name="controller" value="user">
+				<a  href="newregister.php">Go to register</a>
             	<input type="submit" class="btn" name = 'submit ' value="LOGIN">
 				
             </form>

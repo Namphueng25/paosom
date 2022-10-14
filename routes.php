@@ -1,44 +1,40 @@
 <?php
 $controllers = array(
-    'pages' => ['home', 'error'],
-    'user' => ['index', 'newregister','addregister'],
-    'paosom' => ['index'],
-
+	'pages' => ['home', 'error'],
+	'user' => ['newregister', 'addregister'],
+	'paosom' => ['index'],
+	'store' => ['index','newtransfer','update']
 );
 
 function call($controller, $action)
 {
-    require_once("./controllers/" . $controller . "_controller.php");
+	//echo "routes to ".$controller."-".$action."<br>";
+	require_once("./controllers/" . $controller . "_controller.php");
+	switch ($controller) {
+		case "paosom":
+			require_once("./models/paosomModel.php");
+			$controller = new PaosomController();
+			break;
 
-    switch ($controller) {
-        case "pages":
-            $controller = new PagesController();
-            break;
-
-        case "user":
-                $controller = new UserController();
-                break;
-
-                case "paosom":
-                    $controller = new PaosomController();
-                    break;
-
-
+		case "store":
+				require_once("./models/paosomModel.php");
+				require_once("./models/storeModel.php");
+				require_once("./models/transferModel.php");
+				$controller = new storeController();
+				break;
 
 
-    }
-    $controller->{$action}();
+
+	}
+	$controller->{$action}();
 }
+
 if (array_key_exists($controller, $controllers)) {
-
-    if (in_array($action, $controllers[$controller]))
-
-        call($controller, $action);
-
-    else
-
-        call('pages', 'error');
+	if (in_array($action, $controllers[$controller])) {
+		call($controller, $action);
+	} else {
+		call('pages', 'error');
+	}
 } else {
-
-    call('pages', 'error');
+	call('pages', 'error');
 }
