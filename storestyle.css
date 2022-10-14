@@ -1,0 +1,24 @@
+
+.S1 img {
+    width: 220px;
+    height: 220px;
+    background-color: #FFCC66;
+    background: radial-gradient(white 30%, #FFCC66 70%);
+}
+
+.S1 .card {
+    margin-bottom: 20px;
+    margin-left: 80px;
+    width: 220px;
+    height: 280px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.S1 h5{
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+

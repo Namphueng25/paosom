@@ -4,16 +4,18 @@ class storeModel{
     public $store_no;
     public $store_name;
     public $store_income;
+    public $store_image;
   
 
 
 
-    public function __construct($store_id,$store_no,$store_name,$store_income)
+    public function __construct($store_id,$store_no,$store_name,$store_income,$store_image)
     {
         $this->store_id = $store_id;
         $this->store_no = $store_no;
         $this->store_name = $store_name;
          $this->store_income = $store_income;
+         $this->store_image = $store_image;
     }
 
     public static function getAll(){
@@ -26,9 +28,10 @@ class storeModel{
             $store_no = $my_row['store_no'];
             $store_name = $my_row['store_name'];
             $store_income = $my_row['store_income'];
+            $store_image = $my_row['store_image'];
  
     
-            $storeList[] = new storeModel($store_id,$store_no,$store_name,$store_income);
+            $storeList[] = new storeModel($store_id,$store_no,$store_name,$store_income,$store_image);
         }
         require("connection_close.php");
         return $storeList;
@@ -48,8 +51,9 @@ class storeModel{
         $store_no = $my_row['store_no'];
         $store_name = $my_row['store_name'];
         $store_income = $my_row['store_income'];
+        $store_image = $my_row['store_image'];
         require("connection_close.php");
-        return new paosomModel($store_id,$store_no,$store_name,$store_income);
+        return new paosomModel($store_id,$store_no,$store_name,$store_income,$store_image);
 
     }
 
@@ -66,6 +70,28 @@ $newincome =$store_income+$amount;
        $result=$conn->query($sql);
        require("connection_close.php");
        return ;
+    }
+
+    public static function search($key){
+        $storeList = [];
+        require_once("connection_connect.php");
+        $sql="SELECT * FROM store WHERE (store_name LIKE '%$key%')" ;
+        $result = $conn->query($sql);
+        
+        while($my_row = $result->fetch_assoc()){
+            $store_id = $my_row['store_id'];
+            $store_no = $my_row['store_no'];
+            $store_name = $my_row['store_name'];
+            $store_income = $my_row['store_income'];
+            $store_image = $my_row['store_image'];
+
+            $storeList[] = new storeModel($store_id,$store_no,$store_name,$store_income,$store_image);
+
+        }
+        require("connection_close.php");
+        
+        return $storeList;
+        
     }
 
     // public static function Add( $fname,$lname,$username,$password)

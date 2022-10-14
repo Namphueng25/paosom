@@ -6,10 +6,12 @@
         require_once('views/transfer/index.php');
     }
    
-
+    public function search(){
+        $key = $_GET['key'];
+        $storeList = storeModel::search($key);
+        require_once('views/transfer/index.php');
+    }
   
-
-
    public function newtransfer()
    {
        
