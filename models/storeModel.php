@@ -1,77 +1,76 @@
 <?php
-class storeModel{
+class storeModel
+{
     public $store_id;
     public $store_no;
     public $store_name;
     public $store_income;
     public $store_image;
-  
 
 
 
-    public function __construct($store_id,$store_no,$store_name,$store_income,$store_image)
+
+    public function __construct($store_id, $store_no, $store_name, $store_income,$store_image)
     {
         $this->store_id = $store_id;
         $this->store_no = $store_no;
         $this->store_name = $store_name;
-         $this->store_income = $store_income;
-         $this->store_image = $store_image;
+        $this->store_income = $store_income;
+        $this->store_image = $store_image;
     }
 
-    public static function getAll(){
+    public static function getAll()
+    {
         $storeList = [];
         require("connection_connect.php");
-        $sql = "SELECT * FROM store" ;
+        $sql = "SELECT * FROM store";
         $result = $conn->query($sql);
-        while($my_row = $result->fetch_assoc()){
+        while ($my_row = $result->fetch_assoc()) {
             $store_id = $my_row['store_id'];
             $store_no = $my_row['store_no'];
             $store_name = $my_row['store_name'];
             $store_income = $my_row['store_income'];
             $store_image = $my_row['store_image'];
- 
-    
-            $storeList[] = new storeModel($store_id,$store_no,$store_name,$store_income,$store_image);
+
+            $storeList[] = new storeModel($store_id, $store_no, $store_name, $store_income,$store_image);
         }
         require("connection_close.php");
         return $storeList;
     }
 
-  
+
 
 
     public static function get($id)
     {
-        
+
         require("connection_connect.php");
-        $sql="SELECT * FROM store   WHERE store_id='$id' ";
-        $result=$conn->query($sql);
-        $my_row=$result->fetch_assoc();
+        $sql = "SELECT * FROM store   WHERE store_id='$id' ";
+        $result = $conn->query($sql);
+        $my_row = $result->fetch_assoc();
         $store_id = $my_row['store_id'];
         $store_no = $my_row['store_no'];
         $store_name = $my_row['store_name'];
         $store_income = $my_row['store_income'];
         $store_image = $my_row['store_image'];
         require("connection_close.php");
-        return new paosomModel($store_id,$store_no,$store_name,$store_income,$store_image);
-
+        return new paosomModel($store_id, $store_no, $store_name, $store_income,$store_image);
     }
 
 
-    public static function Update($store_id,$amount)
+    public static function Update($store_id, $amount)
     {
-       require("connection_connect.php");
-       $sql1="SELECT * FROM store   WHERE store_id='$store_id'";
-       $result1=$conn->query($sql1);
-       $my_row=$result1->fetch_assoc();
-       $store_income = $my_row['store_income'];
-$newincome =$store_income+$amount;
-       $sql="UPDATE `store` SET `store_income`='$newincome' WHERE store_id = '$store_id'";
-       $result=$conn->query($sql);
-       require("connection_close.php");
-       return ;
+        require("connection_connect.php");
+        $sql1 = "SELECT * FROM store   WHERE store_id='$store_id'";
+        $result1 = $conn->query($sql1);
+        $my_row = $result1->fetch_assoc();
+        $store_income = $my_row['store_income'];
+        $newincome = $store_income + $amount;
+        $sql = "UPDATE `store` SET `store_income`='$newincome' WHERE store_id = '$store_id'";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+        return;
     }
-
     public static function search($key){
         $storeList = [];
         require_once("connection_connect.php");
@@ -93,11 +92,10 @@ $newincome =$store_income+$amount;
         return $storeList;
         
     }
-
     // public static function Add( $fname,$lname,$username,$password)
 
     // { 
-   
+
     //    require("connection_connect.php");
 
 
@@ -113,22 +111,22 @@ $newincome =$store_income+$amount;
 
 
     // }
-//     public static function delete($id)
+    //     public static function delete($id)
 
-//     {
+    //     {
 
-//         require("connection_connect.php");
+    //         require("connection_connect.php");
 
-//         $sql = "DELETE FROM diagnose WHERE id_diagnose = '$id'";
+    //         $sql = "DELETE FROM diagnose WHERE id_diagnose = '$id'";
 
-//         $result = $conn->query($sql);
+    //         $result = $conn->query($sql);
 
-//         require("connection_close.php");
+    //         require("connection_close.php");
 
-//         return ;
+    //         return ;
 
-//     }
+    //     }
 
 
-   
+
 }

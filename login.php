@@ -21,6 +21,7 @@
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['paosom_id'] = $row['paosom_id'];
+            $_SESSION['transfer_id'] = $row['transfer_id'];
             $_SESSION['fname'] = $row['fname'] . " " . $row['lname'];
             $_SESSION['s_userlevel'] = $row['s_userlevel'];
 

@@ -80,15 +80,13 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
                 </li>
            
                 <li>
-                    <a class="show-cat-btn" href="##">
-                        <span class="icon folder" aria-hidden="true"></span>ประวัติการโอน
-                        <span class="category__btn transparent-btn" title="Open list">
-                            <span class="sr-only">Open list</span>
-                          
-                        </span>
-                    </a>
-                
+                    <a class="" href="?controller=store&action=newtransecsion"><span class="icon folder" ></span>ประวัติการโอน</a>
+                    
                 </li>
+
+
+
+          
             
         
          
@@ -120,7 +118,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         </a>
     </div>
 </aside>
-  <div class="main-wrapper" style="background-color: #ffffff">
+  <div class="main-wrapper">
     <!-- ! Main nav -->
     <nav class="main-nav--bg">
   <div class="container main-nav">

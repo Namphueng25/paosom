@@ -3,7 +3,7 @@ $controllers = array(
 	'pages' => ['home', 'error'],
 	'user' => ['newregister', 'addregister'],
 	'paosom' => ['index'],
-	'store' => ['index','newtransfer','update','search']
+	'store' => ['index','newtransfer','update','newtransecsion','search']
 );
 
 function call($controller, $action)
@@ -19,6 +19,7 @@ function call($controller, $action)
 		case "store":
 				require_once("./models/paosomModel.php");
 				require_once("./models/storeModel.php");
+				require_once("./models/topupModel.php");
 				require_once("./models/transferModel.php");
 				$controller = new storeController();
 				break;

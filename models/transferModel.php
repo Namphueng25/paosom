@@ -5,17 +5,20 @@ class transferModel{
     public $store_id;
     public $transfer_datetime;
     public $amount;
+    public $note;
+   
   
 
 
 
-    public function __construct($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount)
+    public function __construct($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount,$note)
     {
         $this->transfer_id = $transfer_id;
         $this->paosom_id = $paosom_id;
         $this->store_id = $store_id;
         $this->transfer_datetime = $transfer_datetime;
         $this->amount = $amount;
+        $this->note = $note;
     }
 
    
@@ -27,11 +30,12 @@ class transferModel{
         while($my_row = $result->fetch_assoc()){
             $transfer_id = $my_row['transfer_id'];
             $paosom_id = $my_row['paosom_id'];
+            $store_id = $my_row['store_id'];
             $transfer_datetime = $my_row['transfer_datetime'];
             $amount = $my_row['amount'];
- 
+            $note = $my_row['note'];
     
-            $transferList[] = new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount);
+            $transferList[] = new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount,$note);
         }
         require("connection_close.php");
         return $transferList;
@@ -50,11 +54,13 @@ class transferModel{
 
         $transfer_id = $my_row['transfer_id'];
         $paosom_id = $my_row['paosom_id'];
+        $store_id = $my_row['store_id'];
         $transfer_datetime = $my_row['transfer_datetime'];
         $amount = $my_row['amount'];
+        $note = $my_row['note'];
         require("connection_close.php");
 
-        return new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount);
+        return new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount,$note);
 
     }
 
@@ -76,9 +82,13 @@ class transferModel{
 
 
 
-       $sql = "INSERT INTO `transfer` (`transfer_id`, `paosom_id`,`store_id`,`transfer_datetime`,`amount`) VALUES (NULL, '$paosom_id','$store_id',current_timestamp(),'$amount')";
+       $sql = "INSERT INTO `transfer` (`transfer_id`, `paosom_id`,`store_id`,`transfer_datetime`,`amount`,`note`) VALUES (NULL, '$paosom_id','$store_id',current_timestamp(),'$amount','เงินออก')";
 
        $result = $conn->query($sql);
+
+       
+
+     
 
        require("connection_close.php");
 
