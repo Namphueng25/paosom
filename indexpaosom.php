@@ -120,7 +120,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         </a>
     </div>
 </aside>
-  <div class="main-wrapper">
+  <div class="main-wrapper" style="background-color: #ffffff">
     <!-- ! Main nav -->
     <nav class="main-nav--bg">
   <div class="container main-nav">
