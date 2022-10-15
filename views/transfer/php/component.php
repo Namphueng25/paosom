@@ -7,11 +7,11 @@
             <div class=\"card\">
                 <div>
                     <img widtg=50px height=100px src=\"img/$store_image\" alt=\"image1\" class=\"img-fluid card-img-top\">
-                    <div class=\"card-body\">
-                        <h5 class=\"card-title\">$store_name</h5>
-                        <p class=\"card-text\">
+                    <div class=\"card-body\"><br>
+                        <h5 class=\"card-title\">$store_name</h5><br>
+                        <h5 class=\"card-text\">
                         เลขบัญชี : $store_no
-                        </p>
+                        </h5>
                     </div>
                 </div>
             </div>

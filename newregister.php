@@ -36,7 +36,7 @@
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
 
                       <div class="form-floating mb-3 w-100">
-                        <input type="text" name="fname" class="form-control"  >
+                        <input type="text" name="fname" class="form-control"  required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')">
                         <label  >Your Name</label>
                       </div>
                     </div>
@@ -45,7 +45,7 @@
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
 
                       <div class="form-floating mb-3 w-100">
-                        <input type="text" name="lname" class="form-control" >
+                        <input type="text" name="lname" class="form-control" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')">
                         <label >Your LastName</label>
                       </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-floating mb-3 w-100">
-                        <input type="text" name="username" class="form-control" />
+                        <input type="text" name="username" class="form-control" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')"/>
                         <label >Your Username</label>
                       </div>
                     </div>
@@ -61,7 +61,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-floating mb-3 w-100">
-                        <input type="password" name="password" class="form-control" />
+                        <input type="password" name="password" class="form-control" required oninvalid="this.setCustomValidity('กรุณากรอกข้อมูล')" />
                         <label >Password</label>
                         <!-- <span class="password-info mt-2">
                           ต้องมีตัวอักษรผสมอยู่ในรหัส และมี 8 ตัว
@@ -69,13 +69,9 @@
                       </div>
                     </div>
 
-                  
-
-              
-                 
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <input type="hidden"name="controller"value="user"/><br><br>
-                    <input type="submit" class="btn" name = 'submit ' value="SIGNIN">&nbsp; &nbsp;
+                    <input type="submit" class="btn" name = 'submit ' value="SIGNIN" onClick='alert("คุณได้ทำการเข้าสู่ระบบเรียบร้อยแล้ว")'>&nbsp; &nbsp;
                       <button type="submit" class="btn btn-primary btn-lg" href="">ย้อนกลับ</button>
                     </div>
 

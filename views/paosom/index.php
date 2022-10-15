@@ -2,24 +2,50 @@
 <html>
 
 <head>
+<link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
 </head>
-<div class="container main-nav">
-    <table style="padding: 30px;" border="0">
-        <tr>
-            <td valign="top"><img src="img/credit-card.png" width="150" height="150"></td>
-            <td valign="center">
-                <div>
-                    <p5><?php echo "ยอดเงินคงเหลือ ";echo number_format($paosom->amount,2); echo " บาท "?></p5><br />
-                    <p5><?php echo "เลขบัญชี $paosom->paosom_no"; ?></p5><br />
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+<center>
 
+    <div id="container" >
+        <div>
+            <img src="img/card.png" width="150" height="150">
+                <p><br><?php echo "ยอดเงินคงเหลือ ";?><br><br><?php echo number_format($paosom->amount,2); echo " บาท "?><br><br><br>
+                <?php echo "เลขบัญชี $paosom->paosom_no"; ?></p>
+        </div>
+    </ก>
+
+</center>
 
 
 </body>
 
 
 </html>
+
+<style>
+
+    #container {
+        width: 600px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #container img{
+        width: 550px;
+        height: 350px;
+        
+    }
+
+    #container p{
+        position: absolute;
+        color: black;
+        font-size: 20px;
+        top: 40%;
+        text-align: left;
+        font-weight: bold;    
+        width: 100%;
+        font-family: 'Kanit', sans-serif;
+        padding-left: 80px;
+        
+    }
+</style>

@@ -5,52 +5,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="storestyle.css">
-
+<link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="img/svg/logo.svg" type="image/x-icon">
 </head>
 <body bgcolor = "#f0fff0"><center>
 
-<h2><center>Store In The Central Canteen</center></h2><br>
+<h2 style="font-family: 'Kanit', sans-serif;"><center>ร้านค้าในโรงส้ม</center></h2><br>
 
 
 
 <form method="get" action="" style=" right:200px;">
         <input type="text" name="key" size = "30">
         <input type="hidden" name="controller" value="store"  />
-        <button type="submit" name="action" value="search"> Search </button>
-        <button type="submit" name="action" value="index">Back</button></br>
+        <button class="btn" type="submit" name="action" value="search"><i class="icon" data-feather="search"></i></button>
+
     </form>
     
 
 <br>
 </center>
-
-<center>
-<!--<div class="table-users">  
-   <table cellspacing="0" border=1>
-      <tr>
-      <th width="230">logo</th>
-         <th width="230">ร้านค้าในโรงส้ม</th>
-         <th width="230">รหัสร้านค้า</th>
-      </tr>
-      <tr></tr>
-<?php foreach($storeList as $store)
-{ 
-
-        echo "<tr>
-        <td><img src=img/$store->store_image></td>
-        <td> $store->store_name </td>
-        <td> $store->store_no </td>
-      </tr>";
-
-}
-?>
-   </table>
-</div>-->
-</center>
 <br><br>
 <div class="container">
-   <section class="S1">
+   <section class="S1" style="font-family: 'Kanit', sans-serif;">
    <div class="row text-center py-5">
       <?php foreach($storeList as $store){
          component($store->store_name,$store->store_no,$store->store_image);
@@ -68,25 +44,44 @@
 </html>
 
 <style>
-
-/*img {
-   height: 60px;
-   width: 60px;
+   .S1 img {
+    width: 220px;
+    height: 200px;
+    background-color: #FFCC66;
+    background: radial-gradient(white 30%, #FFCC66 70%);
+    border-radius: 20px;
 }
 
-body {
-   text-align: center;     
+.icon {
+   color: #FFCC66;
+   position: center;
+   
 }
 
-table {
-   width: 50%;
-   border-color: #FFCC00;
+.btn {
+   background-color: #F8F8FF;
+   height: 50px;
+   width: 50px;
+   padding-left: 12px;
+   padding-right: 18px;
 }
 
-td, th {
-      text-align: center;
-      vertical-align: middle;
-      padding: 10px;
-      background: #FFFFCC;
-   }*/
+.S1 .card {
+    font-family: 'Kanit', sans-serif;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    width: 220px;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-align: center;
+    border-radius: 14px;
+}
+
+.S1 h5{
+    font-size: 20px;
+    font-family: 'Kanit', sans-serif;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
 </style>
