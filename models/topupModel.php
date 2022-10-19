@@ -21,7 +21,31 @@
     {
         $topupList=[];
         require("connection_connect.php");
-        $sql="SELECT * FROM topup INNER JOIN paosom ON topup.paosom_id =paosom.paosom_id INNER JOIN bank ON bank.bank_id =topup.bank_id ";
+        $sql="SELECT * FROM topup INNER JOIN paosom ON topup.paosom_id =paosom.paosom_id INNER JOIN bank ON bank.bank_id =topup.bank_id  WHERE paosom_id='$id'";
+        $result=$conn->query($sql);
+        while($my_row=$result->fetch_assoc())
+        {
+            $topup_id = $my_row['topup_id'];
+            $bank_id = $my_row['bank_id'];
+            $paosom_id = $my_row['paosom_id'];
+            $topup_amount = $my_row['topup_amount'];
+            $Topup_time = $my_row['Topup_time'];
+            $note = $my_row['note'];
+    
+            $topupList[] = new topupModel($topup_id,$bank_id,$paosom_id,$topup_amount,$Topup_time,$note);
+        }
+        require("connection_close.php");
+        return $topupList;
+
+    }
+
+
+
+    public static function get($id)
+    {
+        $topupList=[];
+        require("connection_connect.php");
+        $sql="SELECT * FROM topup INNER JOIN paosom ON topup.paosom_id =paosom.paosom_id INNER JOIN bank ON bank.bank_id =topup.bank_id where paosom.paosom_id = $id ";
         $result=$conn->query($sql);
         while($my_row=$result->fetch_assoc())
         {

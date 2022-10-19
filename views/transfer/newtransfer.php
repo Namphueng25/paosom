@@ -11,7 +11,7 @@
    <div class="row text-center">
    <div class="col">
             <form action="index.php" method="post">
-            <div class="card">
+            <div class="card" style="background-color:#FFF">
                 <div>
                     <img widtg=50px height=60px src="img/cash-back.png" alt="image1" class="img-fluid card-img-top">
                     <div class="card-body">
@@ -28,8 +28,12 @@
                             </label><br><input type="hidden" name="controller" value="store"/>
                             <div>
                                 <button type="submit" name="action" class="btn" value="update" style="font-family: 'Kanit', sans-serif;">โอนเงิน</button>
-                                <button type="submit" name="action" class="btn" value="" style="font-family: 'Kanit', sans-serif;">บิล</button>
-                            </div>
+                                <?php
+                                {
+                                    echo "<a type=button  style=font-family: 'Kanit', sans-serif; class=btn href=report.php?paosom_id=",urlencode($_SESSION['paosom_id']), ">บิล</a>";
+                                }
+                                ?>
+                                </div>
                         </p>
                     </div>
                 </div>

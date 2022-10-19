@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head >
 <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
 </head>
-<body bgcolor = "#f0fff0"><center>
+<center>
 
-<h2><center>ประวัติการโอน</center></h2>
-
+<h2 style=" color:#FF8C00;"><center>ประวัติการโอน</center></h2>
+<body bgcolor= "#f0fff0">
 
 <section class="S2">
         <table class="table">  
@@ -49,6 +49,7 @@
                 </div>
 
         </div>
+        </body>
 </section>
 <br><br>
 
@@ -58,7 +59,7 @@
 
 
 
-</body>
+
 <br>
 <br>
 
@@ -80,7 +81,7 @@ table {
 th {
     background-color: #FF9933;
     height: 50px;
-    font-family: ;
+  
 }
  
 td, th {

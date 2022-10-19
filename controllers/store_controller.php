@@ -5,7 +5,13 @@
 
         require_once('views/transfer/index.php');
     }
-   
+
+    public function report(){
+        $id=$_SESSION['paosom_id'];
+        $transferList = transferModel:: getnowbill();
+        require_once('report.php');
+    }
+
     public function search(){
         $key = $_GET['key'];
         $storeList = storeModel::search($key);
@@ -16,9 +22,10 @@
 
    public function newtransecsion()
    {
-       
-       $transferList = transferModel::getAll();
-       $topupList = topupModel::getAll();
+       $paosom_id=$_SESSION['paosom_id'];
+       $transferList = transferModel::get($paosom_id);
+
+       $topupList = topupModel::get($paosom_id);
        require_once("./views/transfer/transecsion.php");
    }
 

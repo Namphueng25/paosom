@@ -71,8 +71,8 @@
 
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <input type="hidden"name="controller"value="user"/><br><br>
-                    <input type="submit" class="btn" name = 'submit ' value="SIGNIN" onClick='alert("คุณได้ทำการเข้าสู่ระบบเรียบร้อยแล้ว")'>&nbsp; &nbsp;
-                      <button type="submit" class="btn btn-primary btn-lg" href="">ย้อนกลับ</button>
+                    <input type="submit" class="btn btn-primary btn-lg" type="button"  name = 'submit ' value="SIGNIN" >&nbsp; &nbsp;
+                      
                     </div>
 
                   </form>

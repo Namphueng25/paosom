@@ -61,7 +61,7 @@ class paosomModel
     public static function Update($paosom_id, $amount)
     {
         require("connection_connect.php");
-        $sql1 = "SELECT * FROM paosom INNER JOIN user ON paosom.user_id = user.user_id   WHERE user.user_id='$paosom_id'";
+        $sql1 = "SELECT * FROM paosom INNER JOIN user ON paosom.user_id = user.user_id   WHERE paosom.paosom_id='$paosom_id'";
         $result1 = $conn->query($sql1);
         $my_row = $result1->fetch_assoc();
 

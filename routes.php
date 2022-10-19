@@ -3,7 +3,7 @@ $controllers = array(
 	'pages' => ['home', 'error'],
 	'user' => ['newregister', 'addregister'],
 	'paosom' => ['index'],
-	'store' => ['index','newtransfer','update','newtransecsion','search']
+	'store' => ['index','newtransfer','update','newtransecsion','search','report']
 );
 
 function call($controller, $action)

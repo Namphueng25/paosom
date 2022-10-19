@@ -44,7 +44,7 @@ class transferModel{
   
 
 
-    public static function get($id)
+    public static function get2($id)
     {
         
         require("connection_connect.php");
@@ -63,6 +63,47 @@ class transferModel{
         return new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount,$note);
 
     }
+
+    public static function getnowbill()
+    {
+        
+        require("connection_connect.php");
+        $sql="SELECT * FROM transfer  ORDER BY transfer_datetime desc LIMIT 0, 1 ";
+        $result=$conn->query($sql);
+        $my_row=$result->fetch_assoc();
+
+        $transfer_id = $my_row['transfer_id'];
+        $paosom_id = $my_row['paosom_id'];
+        $store_id = $my_row['store_id'];
+        $transfer_datetime = $my_row['transfer_datetime'];
+        $amount = $my_row['amount'];
+        $note = $my_row['note'];
+        require("connection_close.php");
+
+        return new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount,$note);
+
+    }
+
+    public static function get($id)
+    {
+        $transferList = [];
+        require("connection_connect.php");
+        $sql="SELECT * FROM transfer   WHERE paosom_id='$id' ";
+        $result = $conn->query($sql);
+        while($my_row = $result->fetch_assoc()){
+            $transfer_id = $my_row['transfer_id'];
+            $paosom_id = $my_row['paosom_id'];
+            $store_id = $my_row['store_id'];
+            $transfer_datetime = $my_row['transfer_datetime'];
+            $amount = $my_row['amount'];
+            $note = $my_row['note'];
+    
+            $transferList[] = new transferModel($transfer_id,$paosom_id,$store_id,$transfer_datetime,$amount,$note);
+        }
+        require("connection_close.php");
+        return $transferList;
+    }
+
 
 
     // public static function Update($store_id,$store_income)
